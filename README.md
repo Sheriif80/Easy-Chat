@@ -4,44 +4,44 @@ A simple real-time chat application built using Flutter & Firebase as part of my
 
 🚀 Features
 
-User authentication using Firebase Auth
+- User authentication using Firebase Auth
 
-Real-time messaging with Cloud Firestore
+- Real-time messaging with Cloud Firestore
 
-Sender / receiver chat bubbles
+- Sender / receiver chat bubbles
 
-Auto scrolling to latest messages
+- Auto scrolling to latest messages
 
-Clean and simple chat UI
+- Clean and simple chat UI
 
 🛠️ Technologies Used
 
-Flutter
+- Flutter
 
-Dart
+- Dart
 
-Firebase Authentication
+- Firebase Authentication
 
-Cloud Firestore
+- Cloud Firestore
 
-StreamBuilder
+- StreamBuilder
 
 
 🧠 What I Learned
 
-Working with Firebase Authentication
+- Working with Firebase Authentication
 
-Handling real-time data using Firestore streams
+- Handling real-time data using Firestore streams
 
-Building chat UIs in Flutter
+- Building chat UIs in Flutter
 
-Managing async operations and errors
+- Managing async operations and errors
 
 ⚠️ Notes
 
-This project is built for learning purposes
+- This project is built for learning purposes
 
-Firebase API keys shown are not sensitive and protected by Firebase security rules
+- Firebase API keys shown are not sensitive and protected by Firebase security rules
 
 👤 Author
 
@@ -54,3 +54,4 @@ Flutter Developer (Trainee)
 ⭐️ Feedback
 
 Any feedback or suggestions are welcome!
+
