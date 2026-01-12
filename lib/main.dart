@@ -1,3 +1,4 @@
+import 'package:chat_app/cubits/cubit/login_cubit.dart';
 import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/screens/chat_screen.dart';
 import 'package:chat_app/screens/new_sign_in_screen.dart';
@@ -7,6 +8,7 @@ import 'package:chat_app/screens/sign_up_screen.dart';
 import 'package:chat_app/screens/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +36,10 @@ class ChatApp extends StatelessWidget {
           return const Welcome();
         },
         NewSignInScreen.id: (context) {
-          return const NewSignInScreen();
+          return BlocProvider(
+            create: (context) => LoginCubit(),
+            child: NewSignInScreen(),
+          );
         },
         NewSignUpScreen.id: (context) {
           return const NewSignUpScreen();
