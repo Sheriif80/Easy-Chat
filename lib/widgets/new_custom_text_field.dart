@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewCustomTextField extends StatelessWidget {
@@ -10,12 +11,14 @@ class NewCustomTextField extends StatelessWidget {
     this.onChanged,
 
     this.isPasswrod = false,
+    this.keyboardType = TextInputType.text,
   });
   final String name;
   final String hint;
   final IconData icon;
   final bool isPasswrod;
   final Function(String)? onChanged;
+  final TextInputType keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +43,7 @@ class NewCustomTextField extends StatelessWidget {
               }
               return null;
             },
+            keyboardType: keyboardType,
             onChanged: onChanged,
             obscureText: isPasswrod,
             decoration: InputDecoration(

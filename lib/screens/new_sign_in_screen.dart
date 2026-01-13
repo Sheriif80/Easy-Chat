@@ -1,4 +1,4 @@
-import 'package:chat_app/cubits/auth/auth_cubit.dart';
+import 'package:chat_app/blocs/auth/auth_bloc.dart';
 import 'package:chat_app/screens/chat_screen.dart';
 import 'package:chat_app/screens/new_sign_up_screen.dart';
 import 'package:chat_app/widgets/custom_button.dart';
@@ -23,7 +23,7 @@ class NewSignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthState>(
+    return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is LoginLoading) {
           isLoading = true;
@@ -80,6 +80,7 @@ class NewSignInScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 60),
                     NewCustomTextField(
+                      keyboardType: .emailAddress,
                       name: 'Email',
                       hint: 'Enter your email',
                       icon: Icons.email_outlined,
@@ -89,6 +90,7 @@ class NewSignInScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
                     NewCustomTextField(
+                      keyboardType: .visiblePassword,
                       name: 'Password',
                       hint: 'Enter your password',
                       icon: Icons.password_outlined,
@@ -102,9 +104,9 @@ class NewSignInScreen extends StatelessWidget {
                       text: 'Login',
                       onTap: () async {
                         if (formKey.currentState!.validate()) {
-                          BlocProvider.of<AuthCubit>(
+                          BlocProvider.of<AuthBloc>(
                             context,
-                          ).signInUser(email: email!, password: password!);
+                          ).add(LoginEvent(email: email!, password: password!));
                         }
                       },
                     ),

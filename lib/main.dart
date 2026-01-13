@@ -1,3 +1,4 @@
+import 'package:chat_app/blocs/auth/auth_bloc.dart';
 import 'package:chat_app/cubits/auth/auth_cubit.dart';
 import 'package:chat_app/cubits/chat_cubit/chat_cubit.dart';
 import 'package:chat_app/firebase_options.dart';
@@ -41,13 +42,13 @@ class ChatApp extends StatelessWidget {
         },
         NewSignInScreen.id: (context) {
           return BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (context) => AuthBloc(),
             child: NewSignInScreen(),
           );
         },
         NewSignUpScreen.id: (context) {
           return BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (context) => AuthBloc(),
             child: NewSignUpScreen(),
           );
         },

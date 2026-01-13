@@ -1,4 +1,4 @@
-import 'package:chat_app/cubits/auth/auth_cubit.dart';
+import 'package:chat_app/blocs/auth/auth_bloc.dart';
 import 'package:chat_app/widgets/custom_button.dart';
 import 'package:chat_app/widgets/new_custom_text_field.dart';
 import 'package:chat_app/widgets/show_snack_bar.dart';
@@ -22,7 +22,7 @@ class NewSignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthState>(
+    return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is RegisterLoading) {
           isLoading = true;
@@ -88,6 +88,7 @@ class NewSignUpScreen extends StatelessWidget {
 
                       const SizedBox(height: 15),
                       NewCustomTextField(
+                        keyboardType: TextInputType.emailAddress,
                         name: 'Email',
                         hint: 'Enter your email',
                         icon: Icons.email_outlined,
@@ -110,9 +111,9 @@ class NewSignUpScreen extends StatelessWidget {
                         text: 'Create account',
                         onTap: () async {
                           if (formKey.currentState!.validate()) {
-                            BlocProvider.of<AuthCubit>(
-                              context,
-                            ).signupUser(email: email!, password: password!);
+                            BlocProvider.of<AuthBloc>(context).add(
+                              RegisterEvent(email: email!, password: password!),
+                            );
                           }
                         },
                       ),
