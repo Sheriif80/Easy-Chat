@@ -4,7 +4,6 @@ import 'package:chat_app/screens/new_sign_up_screen.dart';
 import 'package:chat_app/widgets/custom_button.dart';
 import 'package:chat_app/widgets/new_custom_text_field.dart';
 import 'package:chat_app/widgets/show_snack_bar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -135,13 +134,6 @@ class NewSignInScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  Future<void> signInUser() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: email!,
-      password: password!,
     );
   }
 }

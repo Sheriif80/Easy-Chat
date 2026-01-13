@@ -1,9 +1,7 @@
 import 'package:chat_app/cubits/register_cubit/register_cubit.dart';
-import 'package:chat_app/screens/new_sign_in_screen.dart';
 import 'package:chat_app/widgets/custom_button.dart';
 import 'package:chat_app/widgets/new_custom_text_field.dart';
 import 'package:chat_app/widgets/show_snack_bar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -145,13 +143,6 @@ class NewSignUpScreen extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-
-  Future<void> signupUser() async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: email!,
-      password: password!,
     );
   }
 }
