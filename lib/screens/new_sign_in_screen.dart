@@ -1,4 +1,4 @@
-import 'package:chat_app/cubits/login_cubit/login_cubit.dart';
+import 'package:chat_app/cubits/auth/auth_cubit.dart';
 import 'package:chat_app/screens/chat_screen.dart';
 import 'package:chat_app/screens/new_sign_up_screen.dart';
 import 'package:chat_app/widgets/custom_button.dart';
@@ -23,7 +23,7 @@ class NewSignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginState>(
+    return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is LoginLoading) {
           isLoading = true;
@@ -102,7 +102,7 @@ class NewSignInScreen extends StatelessWidget {
                       text: 'Login',
                       onTap: () async {
                         if (formKey.currentState!.validate()) {
-                          BlocProvider.of<LoginCubit>(
+                          BlocProvider.of<AuthCubit>(
                             context,
                           ).signInUser(email: email!, password: password!);
                         }
